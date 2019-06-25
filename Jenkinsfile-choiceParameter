@@ -1,0 +1,14 @@
+pipeline {
+    agent any
+   parameters {
+  choice choices: ['demo','declarative'], description: 'multi job', name: 'multijob'
+}
+
+stages {
+        stage('Example') {
+            steps {
+                build "${params.multijob}"
+            }
+        }
+    }
+}
